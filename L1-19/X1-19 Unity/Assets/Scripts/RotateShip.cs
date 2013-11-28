@@ -4,14 +4,17 @@ using System.Collections;
 public class RotateShip : MonoBehaviour {
 
 	public float Rotationspeed = 90f;
-	public float minrotation = -45f;
-	public float maxrotation = 45f;
+	public float minrotation = -60f;
+	public float maxrotation = 60f;
 	private float targetHrotation = 0;
 	private float targetVrotation = 0;
 	public float settlespeed = 0.5f;
-	private float minyrotation = -30f;
-	private float maxyrotation = 30f;
+	private float minyrotation = -180f;
+	private float maxyrotation = 180f;
 	private float targetyrotation =0;
+
+	public float shipspeed = 30f;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -50,10 +53,21 @@ public class RotateShip : MonoBehaviour {
 			targetyrotation = Mathf.Clamp(targetyrotation,minyrotation,maxyrotation);
 			
 		}
-		else {
-			targetyrotation = Mathf.Lerp(targetyrotation, 0f, Time.deltaTime / settlespeed);
+//		else {
+//			targetyrotation = Mathf.Lerp(targetyrotation, 0f, Time.deltaTime / settlespeed);
+//		}
+
+		float goforward = Input.GetAxis("Forward");
+
+		if(Mathf.Abs (goforward)>= 0.1f)
+		{
+			this.gameObject.transform.Translate(0,0,shipspeed * goforward*Time.deltaTime);
 		}
-		
+		else 
+		{
+			this.gameObject.transform.Translate(0,0,10f*Time.deltaTime);
+		}
+
 		Quaternion newangle = Quaternion.identity;
 		newangle.eulerAngles = new Vector3 (targetVrotation,targetyrotation,targetHrotation);
 		this.gameObject.transform.localRotation = newangle;
