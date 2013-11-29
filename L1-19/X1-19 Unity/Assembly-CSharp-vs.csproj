@@ -116,6 +116,8 @@
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\TestBase.cs" />
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\TestDontDestroyOnLoad.cs" />
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\TimeKeeper.cs" />
+     <Compile Include="Assets\PlayMaker Shuriken\Scripts\playMakerShurikenProxy.cs" />
+     <Compile Include="Assets\PlayMaker Utils\PlayMakerUtils_Events.cs" />
      <Compile Include="Assets\PlayMaker\Actions\ActivateGameObject.cs" />
      <Compile Include="Assets\PlayMaker\Actions\AddAnimationClip.cs" />
      <Compile Include="Assets\PlayMaker\Actions\AddComponent.cs" />
@@ -341,6 +343,7 @@
      <Compile Include="Assets\PlayMaker\Actions\GetMouseY.cs" />
      <Compile Include="Assets\PlayMaker\Actions\GetName.cs" />
      <Compile Include="Assets\PlayMaker\Actions\GetNextChild.cs" />
+     <Compile Include="Assets\PlayMaker\Actions\GetNextCollisionEvent.cs" />
      <Compile Include="Assets\PlayMaker\Actions\GetOwner.cs" />
      <Compile Include="Assets\PlayMaker\Actions\GetParent.cs" />
      <Compile Include="Assets\PlayMaker\Actions\GetPosition.cs" />
