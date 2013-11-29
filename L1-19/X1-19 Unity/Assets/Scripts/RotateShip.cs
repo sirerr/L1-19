@@ -9,8 +9,8 @@ public class RotateShip : MonoBehaviour {
 	private float targetHrotation = 0;
 	private float targetVrotation = 0;
 	public float settlespeed = 0.5f;
-	private float minyrotation = -360f;
-	private float maxyrotation = 360f;
+	private float minyrotation = -720f;
+	private float maxyrotation = 720f;
 	private float targetyrotation =0;
 
 	public float shipspeed = 30f;
@@ -57,7 +57,7 @@ public class RotateShip : MonoBehaviour {
 //		targetyrotation = Mathf.Lerp(targetyrotation, 0f, Time.deltaTime / settlespeed);
 //		}
 
-		float goforward = Input.GetAxis("Forward");
+	/*	float goforward = Input.GetAxis("Forward");
 
 		if(Mathf.Abs (goforward)>= 0.1f)
 		{
@@ -65,8 +65,8 @@ public class RotateShip : MonoBehaviour {
 		}
 		else 
 		{
-			this.gameObject.transform.Translate(0,0,1f*Time.deltaTime);
-		}
+	*/		this.gameObject.transform.Translate(0,0,10f*Time.deltaTime);
+	//	}
 
 		Quaternion newangle = Quaternion.identity;
 		newangle.eulerAngles = new Vector3 (targetVrotation,targetyrotation,targetHrotation);
