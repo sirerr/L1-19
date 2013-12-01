@@ -4,6 +4,7 @@ using System.Collections;
 public class RotateShip : MonoBehaviour {
 
 	public float Rotationspeed = 90f;
+	public float shiprotationspeed = 90f;
 	public float minrotation = -60f;
 	public float maxrotation = 60f;
 	private float targetHrotation = 0;
@@ -45,12 +46,12 @@ public class RotateShip : MonoBehaviour {
 				targetVrotation = Mathf.Lerp(targetVrotation, 0f, Time.deltaTime / settlespeed);
 			}
 
-		float ry = Input.GetAxis ("Horizontal2");
+		float ry = Input.GetAxis ("Horizontal");
 
 		if(Mathf.Abs(ry) >= 0.1f)
 		{
-			targetyrotation += -1 * ry * Time.deltaTime * Rotationspeed;
-			targetyrotation = Mathf.Clamp(targetyrotation,minyrotation,maxyrotation);
+			targetyrotation += 1 * ry * Time.deltaTime * shiprotationspeed;
+			//targetyrotation = Mathf.Clamp(targetyrotation,minyrotation,maxyrotation);
 			
 		}
 //	else {
