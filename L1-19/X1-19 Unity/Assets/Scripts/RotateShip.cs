@@ -16,6 +16,10 @@ public class RotateShip : MonoBehaviour {
 
 	public float shipspeed = 30f;
 
+	private bool dobarrel =false;
+	private float barrelrotation = 0f;
+
+
 	// Use this for initialization
 	void Start () {
 	
@@ -69,8 +73,29 @@ public class RotateShip : MonoBehaviour {
 	*/		this.gameObject.transform.Translate(0,0,10f*Time.deltaTime);
 	//	}
 
+		if (dobarrel)
+		{
+			barrelrotation += Time.deltaTime * 720f;
+
+			if(barrelrotation >= 1080f)
+			{
+				dobarrel = false;
+				barrelrotation = 0f;
+			}
+			else
+			{
+				//targetHrotation += barrelrotation;
+			}
+		}
+
+		else if(Input.GetButton("BarrelRow"))
+		{
+			dobarrel = true;
+			barrelrotation = 0f;
+		}
+		
 		Quaternion newangle = Quaternion.identity;
-		newangle.eulerAngles = new Vector3 (targetVrotation,targetyrotation,targetHrotation);
+		newangle.eulerAngles = new Vector3 (targetVrotation,targetyrotation,targetHrotation + barrelrotation);
 		this.gameObject.transform.localRotation = newangle;
 
 	}
